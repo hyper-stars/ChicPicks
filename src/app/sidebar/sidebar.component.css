@@ -1,0 +1,30 @@
+.sidebar{
+	width: 20vw;
+	border: 2px solid red;
+	height: 80vh;
+	display: flex;
+	gap: 0.5rem;
+	flex-direction: column;
+}
+.categories , .designer{
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.categories div, .designer div{
+display: flex;
+gap: 0.5rem;
+}
+
+.range-slider{
+position: relative;
+margin-top: 3rem;
+}
+.min-price,.max-price{
+position: absolute;
+width: 100%;
+left: 0;
+bottom: 20px;
+z-index: 1;
+}
