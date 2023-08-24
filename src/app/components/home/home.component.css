@@ -3,7 +3,7 @@
   display: grid;
   grid-template-rows: 80px repeat(3, 1fr) 80px;
   min-height: 100vh;
-  max-height: auto;
+
   grid-template-areas:
     "header header header header header"
     "sidebar product product product product"
@@ -11,6 +11,7 @@
     "sidebar product product product  product"
     "footer footer footer footer footer";
   grid-template-columns: 200px repeat(4, 1fr);
+  transition: all 1s ease;
   /* gap: 1rem; */
 }
 .header {
@@ -43,21 +44,28 @@
   padding: 1rem;
 }
 
-@media screen and (max-width: 992px) {
+/* @media screen and (max-width: 992px) {
   .homepage-container {
-    grid-template-columns: 150px repeat(4, 1fr);
-    /* gap: 1rem; */
+    grid-template-columns: 100px repeat(4, 1fr);
+
   }
   .product {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(100px, auto);
   }
-}
+} */
 
 @media screen and (max-width: 768px) {
   .homepage-container {
-    grid-template-columns: 100px repeat(4, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "product"
+      "footer";
+    grid-template-rows: 50px auto auto 50px;
   }
+
   .product {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: minmax(100px, auto);
