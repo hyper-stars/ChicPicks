@@ -1,32 +1,43 @@
-
 .sidebar {
   border: 1px solid black;
   grid-area: sidebar;
   position: sticky;
-  width: 200px;
-  background: pink;
-  top: 100px;
-  /* min-height: 100vh; */
+  top: 80px;
 }
-.categories , .designer{
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
+.categories,
+.designer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.categories div, .designer div{
-display: flex;
-gap: 0.5rem;
+.categories div,
+.designer div {
+  display: flex;
+  gap: 0.5rem;
 }
 
-.range-slider{
-position: relative;
-margin-top: 3rem;
+.range-slider {
+  position: relative;
+  margin-top: 3rem;
 }
-.min-price,.max-price{
-position: absolute;
-width: 100%;
-left: 0;
-bottom: 20px;
-z-index: 1;
+.min-price,
+.max-price {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 20px;
+  z-index: 1;
+}
+@media screen and (max-width: 992px) {
+  .sidebar {
+    max-height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: fixed;
+    top: 40px;
+    z-index: 1;
+    background: #fff;
+    width: 100%;
+  }
 }
