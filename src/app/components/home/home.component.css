@@ -1,9 +1,8 @@
 .homepage-container {
   margin: 0;
   display: grid;
-  grid-template-rows: 80px repeat(3, 1fr) 80px;
   min-height: 100vh;
-
+  grid-template-rows: 80px repeat(3, 1fr) 80px;
   grid-template-areas:
     "header header header header header"
     "sidebar product product product product"
@@ -11,6 +10,7 @@
     "sidebar product product product  product"
     "footer footer footer footer footer";
   grid-template-columns: 200px repeat(4, 1fr);
+
   transition: all 1s ease;
 }
 

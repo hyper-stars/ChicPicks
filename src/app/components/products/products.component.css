@@ -6,8 +6,9 @@
   grid-auto-rows: minmax(300px, auto);
   gap: 1rem;
   padding: 1rem;
-  overflow-y: scroll;
   list-style-type: none;
+  min-height: 400px;
+  overflow-y: scroll;
 }
 .card {
   border-radius: 0.5rem;
