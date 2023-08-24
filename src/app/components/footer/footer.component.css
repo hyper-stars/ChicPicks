@@ -1,5 +1,5 @@
 .footer {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   grid-area: footer;
   height: 80px;
   display: grid;
