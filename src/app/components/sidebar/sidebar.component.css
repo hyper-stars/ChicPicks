@@ -2,10 +2,11 @@
 .sidebar {
   border: 1px solid black;
   grid-area: sidebar;
-  position: fixed;
+  position: sticky;
   width: 200px;
   background: pink;
-  height: 100vh;
+  top: 100px;
+  /* min-height: 100vh; */
 }
 .categories , .designer{
 	display: flex;
