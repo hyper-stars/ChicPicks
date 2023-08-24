@@ -37,6 +37,7 @@
     position: fixed;
     top: 40px;
     z-index: 1;
+    padding :2rem 0rem;
     background: #fff;
     width: 100%;
   }

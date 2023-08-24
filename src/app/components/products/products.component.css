@@ -58,6 +58,7 @@
 @media screen and (max-width: 992px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
+    margin-top: 14rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -68,6 +69,7 @@
 @media screen and (max-width: 600px) {
   .card-container {
     grid-template-columns: repeat(1, 1fr);
+    margin-top: 14rem;
   }
   .card {
     width: 80%;
