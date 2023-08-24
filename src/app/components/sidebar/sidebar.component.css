@@ -1,10 +1,14 @@
-.sidebar{
+/* .sidebar{
 	width: 20vw;
 	border: 2px solid red;
 	height: 80vh;
 	display: flex;
 	gap: 0.5rem;
 	flex-direction: column;
+} */
+.sidebar {
+  border: 1px solid black;
+  grid-area: sidebar;
 }
 .categories , .designer{
 	display: flex;
