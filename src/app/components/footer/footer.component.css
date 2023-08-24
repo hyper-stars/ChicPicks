@@ -1,19 +1,23 @@
-/* footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-} */
 .footer {
   border: 1px solid black;
   grid-area: footer;
   height: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
 }
 ul {
   display: flex;
   gap: 1.5rem;
   list-style: none;
+  justify-self: center;
 }
+ul:nth-of-type(1) {
+gap: 3rem;
+}
+
+
 
 ul li a {
   color: inherit;
