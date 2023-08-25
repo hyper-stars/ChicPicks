@@ -1,63 +1,68 @@
-<div class="sidebar" >
-  <div class="categories">
-    <div>Categories</div>
-    <div>
-      <input type="checkbox" id="Women" />
-      <label for="Women">Women</label>
+<div class="sidebar">
+  <div class="sidebar-content" [class.closed]="isClosed">
+    <div class="categories">
+      <div>Categories</div>
+      <div>
+        <input type="checkbox" id="Women" />
+        <label for="Women">Women</label>
+      </div>
+      <div>
+        <input type="checkbox" id="Men" />
+        <label for="Men">Men</label>
+      </div>
+      <div>
+        <input type="checkbox" id="Designer " />
+        <label for="Designer">Designer</label>
+      </div>
     </div>
-    <div>
-      <input type="checkbox" id="Men" />
-      <label for="Men">Men</label>
+    <div class="designer">
+      <div>Designer</div>
+      <div>
+        <input type="checkbox" id="AcneStudios" />
+        <label for="AcneStudios">Acne Studios</label>
+      </div>
+      <div>
+        <input type="checkbox" id="MaxMarra" />
+        <label for="MaxMarra">Max Marra</label>
+      </div>
+      <div>
+        <input type="checkbox" id="CarinWester " />
+        <label for="CarinWester">Carin Wester</label>
+      </div>
+      <div>
+        <input type="checkbox" id="TigerofSweden" />
+        <label for="TigerofSweden">Tiger of Sweden</label>
+      </div>
+      <div>
+        <input type="checkbox" id="BjörnBorg" />
+        <label for="BjörnBorg">Björn Borg</label>
+      </div>
+      <div>
+        <input type="checkbox" id="ByMaline" />
+        <label for="ByMaline">By Maline</label>
+      </div>
     </div>
-    <div>
-      <input type="checkbox" id="Designer " />
-      <label for="Designer">Designer</label>
+    <div class="range-slider">
+      <input
+        type="range"
+        class="min-price"
+        value="10"
+        min="10"
+        max="50"
+        step="10"
+      />
+      <input
+        type="range"
+        class="max-price"
+        value="100"
+        min="60"
+        max="100"
+        step="10"
+      />
     </div>
-  </div>
-  <div class="designer">
-    <div>Designer</div>
-    <div>
-      <input type="checkbox" id="AcneStudios" />
-      <label for="AcneStudios">Acne Studios</label>
-    </div>
-    <div>
-      <input type="checkbox" id="MaxMarra" />
-      <label for="MaxMarra">Max Marra</label>
-    </div>
-    <div>
-      <input type="checkbox" id="CarinWester " />
-      <label for="CarinWester">Carin Wester</label>
-    </div>
-    <div>
-      <input type="checkbox" id="TigerofSweden" />
-      <label for="TigerofSweden">Tiger of Sweden</label>
-    </div>
-    <div>
-      <input type="checkbox" id="BjörnBorg" />
-      <label for="BjörnBorg">Björn Borg</label>
-    </div>
-    <div>
-      <input type="checkbox" id="ByMaline" />
-      <label for="ByMaline">By Maline</label>
-    </div>
-  </div>
-  <div class="range-slider">
-    <input
-      type="range"
-      class="min-price"
-      value="10"
-      min="10"
-      max="50"
-      step="10"
-    />
-    <input
-      type="range"
-      class="max-price"
-      value="100"
-      min="60"
-      max="100"
-      step="10"
-    />
-  </div>
   
+  </div>
+  <button (click)="closeSidebar()" class="btn-close">
+    {{ isClosed ? "Menu" : "Close" }}
+  </button>
 </div>
