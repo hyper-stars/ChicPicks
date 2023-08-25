@@ -4,7 +4,7 @@
   position: sticky;
   top: 80px;
   z-index: 99999;
-  display: inline-block ;
+  display: inline-block;
 }
 .categories,
 .designer {
@@ -31,23 +31,21 @@
   bottom: 20px;
   z-index: 1;
 }
-.sidebar-content{
-  transition: all .5s ease;
-
+.sidebar-content {
+  transition: all 0.5s ease;
+  transform: translateY(5%);
 }
 /*  */
 
-
 .btn-close {
   display: none;
+  width: 2rem;
+  height: 2rem;
+  font-size: 10px;
   background-color: black;
   color: white;
-  padding: 8px;
   border: none;
   z-index: 9999;
-  position: fixed;
-  top: 50px;
-  right: 5px;
 }
 
 .closed {
@@ -64,12 +62,14 @@
     position: fixed;
     top: 40px;
     z-index: 1;
-    padding :2rem 0rem;
+    padding: 2rem 0rem;
     background: #fff;
     width: 100%;
   }
-  .btn-close{
+  .btn-close {
     display: block;
- 
+    top: 50px;
+    right: 5px;
+    position: fixed;
   }
 }
