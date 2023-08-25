@@ -8,16 +8,12 @@
   justify-items: center;
 }
 ul {
+
   display: flex;
-  gap: 1.5rem;
+  gap: .5rem;
   list-style: none;
   justify-self: center;
 }
-ul:nth-of-type(1) {
-gap: 3rem;
-}
-
-
 
 ul li a {
   color: inherit;
