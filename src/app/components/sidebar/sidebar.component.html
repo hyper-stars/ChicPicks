@@ -2,20 +2,29 @@
   <div class="sidebar-content" [class.closed]="isClosed">
     <div class="categories">
       <div>Categories</div>
+
       <div>
-        <input type="checkbox" id="Women" />
-        <label for="Women">Women</label>
+        <input
+          type="radio"
+          id="all"
+          checked
+          name="category-filter"
+          (click)="onClickCategory('all')"
+        />
+        <label for="all">all</label>
       </div>
-      <div>
-        <input type="checkbox" id="Men" />
-        <label for="Men">Men</label>
-      </div>
-      <div>
-        <input type="checkbox" id="Designer " />
-        <label for="Designer">Designer</label>
+
+      <div *ngFor="let category of categoryList">
+        <input
+          type="radio"
+          id="{{ category }}"
+          name="category-filter"
+          (click)="onClickCategory(category)"
+        />
+        <label for="{{ category }}">{{ category }}</label>
       </div>
     </div>
-    <div class="designer">
+    <!-- <div class="designer">
       <div>Designer</div>
       <div>
         <input type="checkbox" id="AcneStudios" />
@@ -41,7 +50,7 @@
         <input type="checkbox" id="ByMaline" />
         <label for="ByMaline">By Maline</label>
       </div>
-    </div>
+    </div> -->
     <div class="range-slider">
       <input
         type="range"
@@ -60,7 +69,6 @@
         step="10"
       />
     </div>
-  
   </div>
   <button (click)="closeSidebar()" class="btn-close">
     {{ isClosed ? "Menu" : "Close" }}
