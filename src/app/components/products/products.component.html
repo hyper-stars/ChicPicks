@@ -1,4 +1,4 @@
-<ul class="card-container">
+<ul grid-aria="product" class="card-container">
   <li class="card" *ngFor="let item of productsComponent">
     <div class="card-content">
       <p>id: {{ item.id }}</p>
@@ -6,9 +6,9 @@
       <p>price:${{ item.price }}</p>
       <p>category:{{ item.category }}</p>
     </div>
-
     <div class="card-image">
-      <img src="{{ item.image }}" alt="" />
+      <img src="{{ item.image }}" alt="{{item.id}}" />
     </div>
   </li>
 </ul> 
+
