@@ -2,7 +2,7 @@
   margin: 0;
   display: grid;
   min-height: 100vh;
-  grid-template-rows: 80px repeat(3, 1fr) 80px;
+  grid-template-rows: 80px repeat(3, 1fr) 100px;
   grid-template-areas:
     "header header header header header"
     "sidebar product product product product"
@@ -37,7 +37,7 @@
       "sidebar"
       "product"
       "footer";
-    grid-template-rows: 80px auto auto 80px;
+    grid-template-rows: 80px auto auto 100px;
   }
 
   .product {

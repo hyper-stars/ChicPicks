@@ -4,9 +4,11 @@
   place-content: center;
   grid-template-columns: 2fr 1fr;
   border-top: 1px solid #cccccc90;
+  height: 100px !important;
 }
 ul {
   list-style: none;
+  padding: 0 2rem;
 }
 ul:nth-of-type(1) {
   display: grid;
@@ -28,4 +30,9 @@ ul li a {
 ul li img {
   width: 25px;
   height: 25px;
+}
+@media screen and (max-width: 768px) {
+  ul li a {
+    font-size: .75rem;
+  }
 }
