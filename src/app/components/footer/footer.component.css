@@ -1,30 +1,25 @@
 .footer {
-  /* border: 1px solid black; */
   grid-area: footer;
-  height: 80px;
   display: grid;
+  place-content: center;
   grid-template-columns: 2fr 1fr;
-padding: 0 2rem;
+  border-top: 1px solid #cccccc90;
 }
 ul {
-
   list-style: none;
-
 }
 ul:nth-of-type(1) {
   display: grid;
- justify-self: baseline;
-  grid-template-columns: repeat(4,1fr);
-gap: 1rem;
+  justify-self: baseline;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 }
 ul:nth-of-type(2) {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-self: flex-end;
-  gap: 1rem ;
+  gap: 1rem;
 }
-
-
 
 ul li a {
   color: inherit;

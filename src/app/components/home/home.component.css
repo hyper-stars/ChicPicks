@@ -37,7 +37,7 @@
       "sidebar"
       "product"
       "footer";
-    grid-template-rows: 50px auto auto 50px;
+    grid-template-rows: 80px auto auto 80px;
   }
 
   .product {
