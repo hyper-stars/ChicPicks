@@ -9,7 +9,7 @@ import { Product } from 'src/models/product';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  products: Product[] = [];
+  product: Product[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -21,7 +21,7 @@ export class ProductComponent implements OnInit {
       const itemId = params['id'];
       console.log('Item ID:', itemId);
       this.productService.GetByIdProduct(itemId).subscribe((product) => {
-        this.products.push(product);
+        this.product.push(product);
       });
     });
   }
