@@ -4,7 +4,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(300px, auto);
   gap: 1rem;
-  padding: 0rem 1rem;
+  padding: 0rem1rem;
   list-style-type: none;
   max-height: 600px;
   height: auto;
@@ -17,6 +17,10 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   transition: all ease 0.5s;
 }
+.clickanchor{
+  text-decoration: none;
+  color: inherit;
+}
 .card-content {
   height: 40%;
   width: 100%;
@@ -24,16 +28,20 @@
   flex-direction: column;
   gap: 1rem;
   transition: all ease-in-out 0.65s;
+  color: black;
+}
+.card-content :nth-of-type(1) {
+  font-size: 14px;
 }
 .card:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
-.card:hover img {
-  transform: scale(1.3) translateY(-3rem);
+.card:hover .card-content p{
+  color: black;
 }
-.card:hover .card-content {
-  filter: blur(0.5px);
+.card:hover img {
+  transform: scale(1.06) translateY(-1rem);
 }
 
 .card-image {
@@ -58,7 +66,6 @@
 @media screen and (max-width: 992px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
-    /* margin-top: 16rem; */
   }
 }
 @media screen and (max-width: 768px) {
