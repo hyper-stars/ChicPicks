@@ -9,3 +9,6 @@ html,
   font-size: 16px;
   font-family: "Bodoni Moda", serif;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
