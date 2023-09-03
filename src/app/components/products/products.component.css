@@ -17,7 +17,7 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   transition: all ease 0.5s;
 }
-.clickanchor{
+.clickanchor {
   text-decoration: none;
   color: inherit;
 }
@@ -37,7 +37,7 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
-.card:hover .card-content p{
+.card:hover .card-content p {
   color: black;
 }
 .card:hover img {
@@ -72,10 +72,4 @@
   .card-container {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-@media screen and (max-width: 600px) {
-  .card-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
 }
