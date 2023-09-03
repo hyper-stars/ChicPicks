@@ -6,7 +6,7 @@
   gap: 1rem;
   padding: 0rem1rem;
   list-style-type: none;
-  max-height: 600px;
+  min-height: 600px;
   height: auto;
   overflow-y: scroll;
 }
