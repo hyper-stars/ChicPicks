@@ -10,8 +10,8 @@
     "sidebar product product product  product"
     "footer footer footer footer footer";
   grid-template-columns: 200px repeat(4, 1fr);
-
   transition: all 1s ease;
+  padding: 0 1rem;
 }
 
 .header {
@@ -29,7 +29,7 @@
   grid-area: footer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .homepage-container {
     grid-template-columns: 1fr;
     grid-template-areas:

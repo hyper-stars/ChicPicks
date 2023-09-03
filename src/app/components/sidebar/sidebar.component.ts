@@ -9,7 +9,6 @@ import { UserFilterService } from 'src/app/services/user-filter.service';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-
   isClosed: boolean = false;
   categoryList: string[] = [];
   constructor(
@@ -27,15 +26,13 @@ export class SidebarComponent implements OnInit {
   }
   checkScreenSize(): void {
     const screenWidth = window.innerWidth;
-  
-    if (screenWidth <= 768) { // Adjust the breakpoint as needed
+
+    if (screenWidth <= 992) {
       this.isClosed = true;
     } else {
       this.isClosed = false;
     }
   }
-
-
 
   closeSidebar() {
     this.isClosed = !this.isClosed;
