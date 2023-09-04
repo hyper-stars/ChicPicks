@@ -33,13 +33,24 @@ export class ProductsComponent implements OnInit {
 
     this.productsService.GetAll(this.filters.category)
       .subscribe((resultApi: Product[]) => {
-
         const query = this.filters.searchQuery;
+        this.productsComponent = resultApi;
+
+        const prices = resultApi.map(x => x.price);
+
+        this.productsService.MinPrice = prices.sort((a,b)=>a-b)[0];
+        this.productsService.MaxPrice = prices.sort((a,b)=>a-b).slice(-1)[0];
+
         if (query && query !== '') {
-          this.productsComponent = resultApi
+          this.productsComponent = this.productsComponent
             .filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
-        } else {
-          this.productsComponent = resultApi;
+        }
+
+        const minPrice = this.filters.minPrice;
+        const maxPrice = this.filters.maxPrice;
+        if (minPrice >= 0 && maxPrice >= minPrice) {
+          this.productsComponent = this.productsComponent
+            .filter(product => product.price >= minPrice && product.price <= maxPrice);
         }
 
       });

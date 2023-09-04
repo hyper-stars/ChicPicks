@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { filter } from 'rxjs';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { ProductsService } from 'src/app/services/products.service';
 import { UserFilterService } from 'src/app/services/user-filter.service';
 
 @Component({
@@ -11,16 +11,22 @@ import { UserFilterService } from 'src/app/services/user-filter.service';
 export class SidebarComponent implements OnInit {
   isClosed: boolean = false;
   categoryList: string[] = [];
+
+  minPrice: number = 0;
+  maxPrice: number = 20000;
+
   constructor(
     private categoriesService: CategoriesService,
-    private userFilterService: UserFilterService
-  ) {}
+    private userFilterService: UserFilterService,
+    public productsService:ProductsService
+  ) { }
+
   ngOnInit() {
     this.categoriesService.GetAll().subscribe((resultApi: string[]) => {
       this.categoryList = resultApi;
     });
   }
-  
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any): void {
     this.checkScreenSize();
@@ -44,6 +50,14 @@ export class SidebarComponent implements OnInit {
   onClickCategory(category: string) {
     let filters = this.userFilterService.Filters.getValue();
     filters.category = category;
+    this.userFilterService.Filters.next(filters);
+  }
+
+  onPriceChange($event: Event) {
+    let filters = this.userFilterService.Filters.getValue();
+    filters.minPrice = this.minPrice;
+    filters.maxPrice = this.maxPrice;
+
     this.userFilterService.Filters.next(filters);
   }
 }

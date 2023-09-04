@@ -1,36 +1,22 @@
-
 <div class="sidebar">
   <div class="sidebar-content" [class.closed]="isClosed">
     <div class="categories">
       <div>Categories</div>
-
-      <div>
-        <input
-          type="radio"
-          id="all"
-          checked
-          name="category-filter"
-          (click)="onClickCategory('all')"
-        />
-        <label for="all">all</label>
-      </div>
-
-      <div *ngFor="let category of categoryList">
-        <input
-          type="radio"
-          id="{{ category }}"
-          name="category-filter"
-          (click)="onClickCategory(category)"
-        />
-        <label for="{{ category }}">{{ category }}</label>
-      </div>
+      <mat-radio-group *ngIf="categoryList && categoryList.length > 0">
+        <mat-radio-button value="all" id="all" (click)="onClickCategory('all')">All</mat-radio-button>
+        <br />
+        <mat-radio-button *ngFor="let category of categoryList" value="{{category}}" id="{{ category }}"
+          (click)="onClickCategory(category)">{{ category }}</mat-radio-button>
+      </mat-radio-group>
     </div>
     <div class="range-slider">
-      <mat-slider min="200" max="500">
-        <input value="300" matSliderStartThumb>
-        <input value="400" matSliderEndThumb>
+      <mat-slider [min]="productsService.MinPrice" [max]="productsService.MaxPrice"
+      step="0.01" discrete
+        (change)="onPriceChange($event)">
+        <input matSliderStartThumb [(ngModel)]="minPrice">
+        <input matSliderEndThumb [(ngModel)]="maxPrice">
       </mat-slider>
-      
+
     </div>
   </div>
   <button (click)="closeSidebar()" class="btn-close">

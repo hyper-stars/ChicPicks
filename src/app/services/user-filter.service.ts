@@ -12,8 +12,8 @@ export class UserFilterService {
   constructor() {
     let filter = new UserFilter();
     filter.category = "all";
-    filter.minPrice = -1;
-    filter.maxPrice = -1;
+    filter.minPrice = 0;
+    filter.maxPrice = 1000;
     filter.searchQuery = "";
 
     this.Filters = new BehaviorSubject<UserFilter>(filter);
