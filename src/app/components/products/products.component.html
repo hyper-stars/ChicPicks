@@ -1,14 +1,13 @@
 <ul grid-aria="product" class="card-container">
   <li class="card" *ngFor="let item of productsComponent">
-    <div class="card-content">
-      <p>id: {{ item.id }}</p>
-      <p>title: {{ item.title }}</p>
-      <p>price:${{ item.price }}</p>
-      <p>category:{{ item.category }}</p>
-    </div>
-    <div class="card-image">
-      <img src="{{ item.image }}" alt="{{item.id}}" />
-    </div>
+    <a routerLink="/products/{{ item.id }}" class="clickanchor">
+      <div class="card-content">
+        <p>{{ item.title }}</p>
+        <p>${{ item.price }}</p>
+      </div>
+      <div class="card-image">
+        <img src="{{ item.image }}" alt="{{ item.id }}" />
+      </div>
+    </a>
   </li>
-</ul> 
-
+</ul>

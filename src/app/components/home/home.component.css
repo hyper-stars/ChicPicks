@@ -2,7 +2,7 @@
   margin: 0;
   display: grid;
   min-height: 100vh;
-  grid-template-rows: 80px repeat(3, 1fr) 80px;
+  grid-template-rows: 80px repeat(3, 1fr) 100px;
   grid-template-areas:
     "header header header header header"
     "sidebar product product product product"
@@ -10,8 +10,8 @@
     "sidebar product product product  product"
     "footer footer footer footer footer";
   grid-template-columns: 200px repeat(4, 1fr);
-
   transition: all 1s ease;
+  padding: 0 1rem;
 }
 
 .header {
@@ -29,7 +29,7 @@
   grid-area: footer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .homepage-container {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -37,7 +37,7 @@
       "sidebar"
       "product"
       "footer";
-    grid-template-rows: 50px auto auto 50px;
+    grid-template-rows: 80px auto auto 100px;
   }
 
   .product {

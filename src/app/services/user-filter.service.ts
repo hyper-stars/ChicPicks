@@ -17,9 +17,4 @@ export class UserFilterService {
 
     this.Filters = new BehaviorSubject <UserFilter> (filter);
   }
- 
-  
-
-
-
 }
