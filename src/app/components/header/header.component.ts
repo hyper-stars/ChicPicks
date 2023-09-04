@@ -13,10 +13,17 @@ export class HeaderComponent {
 
   }
 
+  searchTimeout: number = null!;
   onUserSearch($event: KeyboardEvent) {
     let filters = this.userFilterService.Filters.getValue();
     filters.searchQuery = this.searchQuery;
-    
-    this.userFilterService.Filters.next(filters);
+
+    if (this.searchTimeout != null) {
+      clearTimeout(this.searchTimeout);
+    }
+
+    this.searchTimeout = window.setTimeout(() => {
+      this.userFilterService.Filters.next(filters);
+    }, 1000);
   }
 }

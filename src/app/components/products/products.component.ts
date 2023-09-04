@@ -23,9 +23,10 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.filterService.Filters.subscribe((updatedFilters: UserFilter) => {
       this.filters = updatedFilters;
-      
+
       this.fetchProducts();
     });
+
   }
 
   fetchProducts() {
