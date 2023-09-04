@@ -11,9 +11,10 @@ import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './components/product/product.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatRadioButton, MatRadioGroup, MatRadioModule } from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,8 +33,10 @@ import { MatSliderModule } from '@angular/material/slider';
     FormsModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    MatRadioModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

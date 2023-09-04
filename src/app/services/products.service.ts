@@ -7,9 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductsService {
+  private apiUrl = 'https://fakestoreapi.com/products';
+
+  public MinPrice: number = 0;
+  public MaxPrice: number = 1000;
+
   constructor(private httpClient: HttpClient) { }
 
-  private apiUrl = 'https://fakestoreapi.com/products';
 
   GetAll(category: string = "all"): Observable<Product[]> {
 
