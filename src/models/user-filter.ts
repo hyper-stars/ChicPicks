@@ -1,6 +1,6 @@
-
-export class UserFilter{
- public category!: string;
- public minPrice!: number;
- public maxPrice!: number;
+export class UserFilter {
+    public category!: string;
+    public minPrice!: number;
+    public maxPrice!: number;
+    public searchQuery!: string;
 }

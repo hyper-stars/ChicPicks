@@ -20,10 +20,12 @@ export class SidebarComponent implements OnInit {
       this.categoryList = resultApi;
     });
   }
+  
   @HostListener('window:resize', ['$event'])
   onResize(event: any): void {
     this.checkScreenSize();
   }
+
   checkScreenSize(): void {
     const screenWidth = window.innerWidth;
 
