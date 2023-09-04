@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { filter } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
 import { UserFilterService } from 'src/app/services/user-filter.service';
 import { Product } from 'src/models/product';
@@ -12,18 +11,17 @@ import { UserFilter } from 'src/models/user-filter';
 })
 export class ProductsComponent implements OnInit {
   productsComponent: Product[] = [];
+  searchQuery: string = ''; // The user's search query
 
   constructor(
     private productsService: ProductsService,
-    private fiterService: UserFilterService
+    private filterService: UserFilterService
   ) {}
 
   ngOnInit() {
-    this.fiterService.Filters.subscribe((updatedFilters: UserFilter) => {
+    this.filterService.Filters.subscribe((updatedFilters: UserFilter) => {
       if (updatedFilters.category === 'all') {
-        this.productsService.GetAll().subscribe((resultApi: Product[]) => {
-          this.productsComponent = resultApi;
-        });
+        this.fetchProducts();
       } else {
         this.productsService
           .GetAllByCategory(updatedFilters.category)
@@ -32,5 +30,24 @@ export class ProductsComponent implements OnInit {
           });
       }
     });
+  }
+
+
+  fetchProducts() {
+    this.productsService
+      .searchProducts(this.searchQuery) 
+      .subscribe((resultApi: Product[]) => {
+        this.productsComponent = resultApi;
+      });
+  }
+  onSearch() {
+    if (this.searchQuery) {
+      this.productsComponent = this.productsComponent.filter(product =>
+        product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    } else {
+      // Reset the products if the search query is empty
+      this.fetchProducts();
+    }
   }
 }

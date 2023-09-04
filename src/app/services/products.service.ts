@@ -9,23 +9,24 @@ import { Observable } from 'rxjs';
 export class ProductsService {
   constructor(private httpClient: HttpClient) {}
 
+  private apiUrl = 'https://fakestoreapi.com/products';
+
   GetAll(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>('https://fakestoreapi.com/products');
+    return this.httpClient.get<Product[]>(this.apiUrl);
   }
 
   GetAllByCategory(category: string): Observable<Product[]> {
     return this.httpClient.get<Product[]>(
-      'https://fakestoreapi.com/products/category/' + category
+      `${this.apiUrl}/category/${category}`
     );
   }
 
   GetByIdProduct(id: number) {
-    return this.httpClient.get<Product>(
-      'https://fakestoreapi.com/products/' + id
-    );
+    return this.httpClient.get<Product>(`${this.apiUrl}/${id}`);
   }
 
-  // GetById(): Product {
-  //   return new Product();
-  // }
+  searchProducts(query: string): Observable<Product[]> {
+    const searchUrl = `${this.apiUrl}?q=${query}`;
+    return this.httpClient.get<Product[]>(searchUrl);
+  }
 }
