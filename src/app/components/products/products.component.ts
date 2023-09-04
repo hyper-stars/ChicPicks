@@ -11,43 +11,37 @@ import { UserFilter } from 'src/models/user-filter';
 })
 export class ProductsComponent implements OnInit {
   productsComponent: Product[] = [];
-  searchQuery: string = ''; // The user's search query
+  filters: UserFilter;
 
   constructor(
     private productsService: ProductsService,
     private filterService: UserFilterService
-  ) {}
+  ) {
+    this.filters = new UserFilter();
+  }
 
   ngOnInit() {
     this.filterService.Filters.subscribe((updatedFilters: UserFilter) => {
-      if (updatedFilters.category === 'all') {
-        this.fetchProducts();
-      } else {
-        this.productsService
-          .GetAllByCategory(updatedFilters.category)
-          .subscribe((resultApi: Product[]) => {
-            this.productsComponent = resultApi;
-          });
-      }
+      this.filters = updatedFilters;
+      
+      this.fetchProducts();
     });
   }
 
-
   fetchProducts() {
-    this.productsService
-      .searchProducts(this.searchQuery) 
+
+    this.productsService.GetAll(this.filters.category)
       .subscribe((resultApi: Product[]) => {
-        this.productsComponent = resultApi;
+
+        const query = this.filters.searchQuery;
+        if (query && query !== '') {
+          this.productsComponent = resultApi
+            .filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
+        } else {
+          this.productsComponent = resultApi;
+        }
+
       });
   }
-  onSearch() {
-    if (this.searchQuery) {
-      this.productsComponent = this.productsComponent.filter(product =>
-        product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
-    } else {
-      // Reset the products if the search query is empty
-      this.fetchProducts();
-    }
-  }
+
 }

@@ -7,26 +7,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductsService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   private apiUrl = 'https://fakestoreapi.com/products';
 
-  GetAll(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.apiUrl);
-  }
+  GetAll(category: string = "all"): Observable<Product[]> {
 
-  GetAllByCategory(category: string): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(
-      `${this.apiUrl}/category/${category}`
-    );
+    let apiUrl = this.apiUrl;
+
+    if (category != 'all') {
+      apiUrl += `/category/${category}`;
+    }
+
+    return this.httpClient.get<Product[]>(apiUrl);
   }
 
   GetByIdProduct(id: number) {
     return this.httpClient.get<Product>(`${this.apiUrl}/${id}`);
   }
 
-  searchProducts(query: string): Observable<Product[]> {
-    const searchUrl = `${this.apiUrl}?q=${query}`;
-    return this.httpClient.get<Product[]>(searchUrl);
-  }
 }

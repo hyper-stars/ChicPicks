@@ -7,14 +7,15 @@ import { UserFilter } from 'src/models/user-filter';
 })
 export class UserFilterService {
 
-  public Filters: BehaviorSubject <UserFilter>;
+  public Filters: BehaviorSubject<UserFilter>;
 
-  constructor() { 
-    let filter= new UserFilter ();
-    filter.category= "all";
-    filter.minPrice = -1 ;
+  constructor() {
+    let filter = new UserFilter();
+    filter.category = "all";
+    filter.minPrice = -1;
     filter.maxPrice = -1;
+    filter.searchQuery = "";
 
-    this.Filters = new BehaviorSubject <UserFilter> (filter);
+    this.Filters = new BehaviorSubject<UserFilter>(filter);
   }
 }
