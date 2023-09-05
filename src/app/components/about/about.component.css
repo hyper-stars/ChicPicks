@@ -1,0 +1,4 @@
+.about-container {
+  height: calc(100vh - 160px);
+  margin-top: 5rem;
+}
