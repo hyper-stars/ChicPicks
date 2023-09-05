@@ -1,7 +1,4 @@
 <div class="product-page-container">
-  <div>
-    <app-header></app-header>
-  </div>
   <div class="product-container" *ngFor="let item of product">
     <div class="product-content">
       <p>id: {{ item.id }}</p>
@@ -13,8 +10,5 @@
     <div class="card-image">
       <img src="{{ item.image }}" alt="{{ item.id }}" />
     </div>
-  </div>
-  <div class="footer">
-    <app-footer></app-footer>
   </div>
 </div>
