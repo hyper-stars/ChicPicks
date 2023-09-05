@@ -14,7 +14,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatRadioButton, MatRadioGroup, MatRadioModule } from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
+import { ContactComponent } from './components/contact/contact.component';
+import { AboutComponent } from './components/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { MatRadioButton, MatRadioGroup, MatRadioModule } from '@angular/material
     ProductsComponent,
     ProductComponent,
     NotFoundComponent,
+    ContactComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +38,9 @@ import { MatRadioButton, MatRadioGroup, MatRadioModule } from '@angular/material
     BrowserAnimationsModule,
     MatSliderModule,
     MatRadioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
