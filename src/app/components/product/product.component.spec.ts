@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductComponent } from './product.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('ProductComponent', () => {
   let component: ProductComponent;
@@ -8,7 +9,8 @@ describe('ProductComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductComponent]
+      declarations: [ProductComponent],
+      imports: [ActivatedRoute],
     });
     fixture = TestBed.createComponent(ProductComponent);
     component = fixture.componentInstance;

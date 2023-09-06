@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SidebarComponent } from './sidebar.component';
+import { CategoriesService } from 'src/app/services/categories.service';
+import { UserFilterService } from 'src/app/services/user-filter.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -8,7 +11,8 @@ describe('SidebarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SidebarComponent]
+      declarations: [SidebarComponent],
+      imports: [CategoriesService, UserFilterService, ProductsService],
     });
     fixture = TestBed.createComponent(SidebarComponent);
     component = fixture.componentInstance;
