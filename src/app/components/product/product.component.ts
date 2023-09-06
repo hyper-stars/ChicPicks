@@ -9,20 +9,27 @@ import { Product } from 'src/models/product';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  product: Product[] = [];
+  product: Product;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductsService
-  ) {}
+  ) {
+    this.product = new Product();
+  }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      const itemId = params['id'];
-      console.log('Item ID:', itemId);
+
+      const itemId = params['producId'];
       this.productService.GetByIdProduct(itemId).subscribe((product) => {
-        this.product.push(product);
+        this.product = product;
       });
+
+    });
+
+    this.route.queryParams.subscribe(p => {
+      console.log(p);
     });
   }
 }
