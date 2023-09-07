@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductComponent } from './product.component';
-import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ProductsService } from 'src/app/services/products.service';
+import { AppModule } from 'src/app/app.module';
 
 describe('ProductComponent', () => {
   let component: ProductComponent;
@@ -10,7 +12,7 @@ describe('ProductComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ProductComponent],
-      imports: [ActivatedRoute],
+      imports: [RouterTestingModule, AppModule],
     });
     fixture = TestBed.createComponent(ProductComponent);
     component = fixture.componentInstance;

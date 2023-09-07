@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { ProductsComponent } from '../products/products.component';
+import { AppModule } from 'src/app/app.module';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -10,7 +11,8 @@ describe('HomeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent, SidebarComponent, ProductsComponent],
+      declarations: [HomeComponent],
+      imports: [AppModule]
     });
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
