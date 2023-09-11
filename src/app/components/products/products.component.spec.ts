@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { ProductsComponent } from './products.component';
 import { ProductsService } from 'src/app/services/products.service';
@@ -39,7 +39,30 @@ describe('ProductsComponent', () => {
 
     fixture.detectChanges();
 
-    expect(component.productsComponent).toEqual(response);
+    expect(component.productsList).toEqual(response);
 
   });
+
+  // it('should have price', fakeAsync(() => {
+  //   const response: Product[] = []; 
+
+  //   spyOn(service, 'GetAll').and.returnValue(of(response));
+  //   component.fetchProducts();
+
+  //   // Use tick to simulate the passage of time for asynchronous operations
+  //   tick(5000);
+
+  //   fixture.detectChanges();
+  //   tick(5000);
+
+  //   const compiled = fixture.nativeElement as HTMLElement;
+
+  //   const productPrice = compiled.querySelector('.product-price');
+  //   tick(5000);
+
+  //   console.log("compiled", compiled);
+  //   console.log("html", productPrice);
+
+  //   // Add your expectations here
+  // }));
 });

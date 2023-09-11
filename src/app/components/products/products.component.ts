@@ -10,7 +10,7 @@ import { UserFilter } from 'src/models/user-filter';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  productsComponent: Product[] = [];
+  productsList: Product[] = [];
   filters: UserFilter;
 
   constructor(
@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
     private filterService: UserFilterService
   ) {
     this.filters = new UserFilter();
+    this.filters.category = "all";
   }
 
   ngOnInit() {
@@ -34,22 +35,22 @@ export class ProductsComponent implements OnInit {
     this.productsService.GetAll(this.filters.category)
       .subscribe((resultApi: Product[]) => {
         const query = this.filters.searchQuery;
-        this.productsComponent = resultApi;
+        this.productsList = resultApi;
 
         const prices = resultApi.map(x => x.price);
 
-        this.productsService.MinPrice = prices.sort((a,b)=>a-b)[0];
-        this.productsService.MaxPrice = prices.sort((a,b)=>a-b).slice(-1)[0];
+        this.productsService.MinPrice = prices.sort((a, b) => a - b)[0];
+        this.productsService.MaxPrice = prices.sort((a, b) => a - b).slice(-1)[0];
 
         if (query && query !== '') {
-          this.productsComponent = this.productsComponent
+          this.productsList = this.productsList
             .filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
         }
 
         const minPrice = this.filters.minPrice;
         const maxPrice = this.filters.maxPrice;
         if (minPrice >= 0 && maxPrice >= minPrice) {
-          this.productsComponent = this.productsComponent
+          this.productsList = this.productsList
             .filter(product => product.price >= minPrice && product.price <= maxPrice);
         }
 
