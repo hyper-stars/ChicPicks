@@ -1,0 +1,18 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+  border-bottom: 1px solid #cccccc90;
+  background: white;
+  padding: 0 1rem;
+}
+.navbar-brand,
+.nav-link {
+  font-weight: 600;
+  color: #000;
+}
+.nav-link.active {
+  color: #ff4081; /* Pink color for active links */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

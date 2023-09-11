@@ -1,0 +1,49 @@
+<div class="sidebar">
+  <div class="sidebar-content" [class.closed]="isClosed">
+    <div class="categories" role="region" aria-label="Categories">
+      <p>Categories</p>
+      <mat-radio-group
+        class="matradiogroup"
+        *ngIf="categoryList && categoryList.length > 0"
+      >
+        <mat-radio-button value="all" id="all" (click)="onClickCategory('all')"
+          >All</mat-radio-button
+        >
+        <br />
+        <mat-radio-button
+          *ngFor="let category of categoryList"
+          [value]="category"
+          [id]="category"
+          (click)="onClickCategory(category)"
+        >
+          {{ category }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="range-slider">
+      <p>Price</p>
+      <mat-slider
+        [min]="productsService.MinPrice"
+        [max]="productsService.MaxPrice"
+        step="0.01"
+        discrete
+        color="accent"
+        (change)="onPriceChange($event)"
+      >
+        <input
+          matSliderStartThumb
+          [(ngModel)]="minPrice"
+          aria-label="Minimum Price"
+        />
+        <input
+          matSliderEndThumb
+          [(ngModel)]="maxPrice"
+          aria-label="Maximum Price"
+        />
+      </mat-slider>
+    </div>
+  </div>
+  <button (click)="closeSidebar()" class="btn-close">
+    {{ isClosed ? "Menu" : "Close" }}
+  </button>
+</div>
